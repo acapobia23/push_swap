@@ -25,7 +25,7 @@ void	check_final(t_checker *checker)
 		ft_printf("OK\n");
 }
 
-static int	ft_mystrcmp(char *moves, t_funct funct)
+int	ft_mystrcmp(char *moves, t_funct funct)
 {
 	int	i;
 

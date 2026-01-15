@@ -19,6 +19,8 @@ typedef struct s_checker
 	char		**moves;
 }		t_checker;
 
+int			check_moves(char **moves, t_funct *funct);
+int			ft_mystrcmp(char *moves, t_funct funct);
 void		free_checker(t_checker **checker);
 void		checker_error_free(t_checker **checker, const char *str);
 t_checker	*checker_setup(int ac, char **av);

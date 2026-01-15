@@ -1,5 +1,28 @@
 #include "../includes/checker.h"
 
+int	check_moves(char **moves, t_funct *funct)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	if (ft_strncmp("Error", (const char *)moves[0], 5) == 0)
+		return (-1);
+	while (moves[i])
+	{
+		j = -1;
+		while (++j < 11)
+		{
+			if (ft_mystrcmp(moves[i], funct[j]) == 1)
+				break ;
+		}
+		if (j == 11)
+			return (-1);
+		i++;
+	}
+	return (0);	
+}
+
 void	free_checker(t_checker **checker)
 {
 	int	i;

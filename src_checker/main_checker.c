@@ -7,7 +7,7 @@ int	main(int ac, char **av)
 	checker = checker_setup(ac, av);
 	if (checker->moves)
 	{
-		if (ft_strncmp("Error", (const char *)checker->moves[0], 5) == 0)
+		if (check_moves(checker->moves, checker->funct) == -1)
 			checker_error_free(&checker, "Error");
 		do_moves(&checker);
 	}
