@@ -13,7 +13,7 @@ void	take_on_top_smaller(t_stack **stack_a)
 	ptr = find_small((*stack_a));
 	ra =  distance_from_top(ptr, (*stack_a));
 	rra = count_stack((*stack_a)) - ra;
-	if (ra < rra)
+	if (ra <= rra)
 		put_pos_single(&(*stack_a), c, ra, 1, 0);
 	else
 		put_pos_single(&(*stack_a), c, rra, 2, 0);

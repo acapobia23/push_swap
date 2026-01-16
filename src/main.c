@@ -17,9 +17,9 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	if (data->tot_n <= 3)
-	simple_sort(&(data->stack_a), data->tot_n);
+		simple_sort(&(data->stack_a), data->tot_n);
 	else
-	sorting_algorithms(&data);
+		sorting_algorithms(&data);
 	// print_stack(data, NULL, NULL);
 	// ft_printf("\n\norder : %i\n\n", check_order(data->stack_a, data->tot_n));
 	free_data(&data);

@@ -98,4 +98,6 @@ void	push_cheapest(t_data **data, t_stack *cheap)
 	else
 		put_pos_alone(&(*data), cheap);
 	ft_pa(&((*data)->stack_b), &((*data)->stack_a));
+	if ((*data)->stack_b && (((*data)->stack_b->idx + 1) == (*data)->stack_a->idx))
+		ft_pa(&((*data)->stack_b), &((*data)->stack_a));
 }

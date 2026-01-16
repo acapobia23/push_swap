@@ -2,20 +2,21 @@
 
 void	check_final(t_checker *checker)
 {
-	int	i;
 	int	flag;
+	int	len;
 	t_stack	*ptr;
 
-	flag = 0;
 	if (!checker->stack_a)
-		flag = 1;
-	ptr = checker->stack_a->next;
-	i = checker->stack_a->idx;
-	if (i > ptr->idx)
-		flag = 1;
-	while (ptr->idx != i)
 	{
-		if (ptr->idx > ptr->next->idx && ptr->next->idx != i)
+		ft_printf("KO\n");
+		return ;
+	}
+	len = count_stack(checker->stack_a);
+	flag = 0;
+	ptr = checker->stack_a;
+	while (--len != 0)
+	{
+		if (ptr->idx > ptr->next->idx)
 			flag = 1;
 		ptr = ptr->next;
 	}

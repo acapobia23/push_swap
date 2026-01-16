@@ -3,6 +3,8 @@
 
 #include "rules.h"
 
+int	    ft_ischunk(int idx, t_chunk *ptr);
+void	push_consevutive(t_data **data, t_chunk *ptr, int *count_pb, int tot_push);
 char	**mtx_init(int ac, char **av);
 t_data	*data_mtx_init(int ac, char **av);
 t_moves	moves_init(void);

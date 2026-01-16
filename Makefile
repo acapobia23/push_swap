@@ -12,7 +12,7 @@ SRC = src/main.c \
 	  src/setup/index_setup.c src/setup/stack_init.c src/setup/chunks_setup.c src/push_back.c \
 	  src/simple_sort.c src/sorting_algo.c src/sorting_algo_utils.c src/sorting_algo_utils_two.c \
 	  src/rules/ft_rules_one.c src/rules/ft_rules_two.c src/rules/ft_rules_three.c src/rules/logic_rules.c \
-	  src/rules/logic_rules_utils.c
+	  src/rules/logic_rules_utils.c src/sorting_algo_utils_three.c
 
 BONUS_SRC = src_checker/main_checker.c src_checker/checker_setup.c src_checker/free_checker.c \
 			src_checker/stack_setup.c src_checker/do_moves.c src_checker/stack_setup_utils.c \
