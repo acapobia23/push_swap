@@ -1,8 +1,8 @@
 #ifndef RULES_H
 # define RULES_H
 
-#include "libft/libft.h"
-#include <stdio.h>
+# include "libft/libft.h"
+# include <stdio.h>
 
 typedef struct s_moves
 {
@@ -65,6 +65,4 @@ void	ft_rrb(t_stack **stack);
 void	ft_ss(t_stack **stack_a, t_stack **stack_b);
 void	ft_rr(t_stack **stack_a, t_stack **stack_b);
 void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
-
 #endif
-

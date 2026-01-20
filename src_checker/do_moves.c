@@ -2,11 +2,11 @@
 
 void	check_final(t_checker *checker)
 {
-	int	flag;
-	int	len;
+	int		flag;
+	int		len;
 	t_stack	*ptr;
 
-	if (!checker->stack_a)
+	if (!checker->stack_a || checker->stack_b)
 	{
 		ft_printf("KO\n");
 		return ;

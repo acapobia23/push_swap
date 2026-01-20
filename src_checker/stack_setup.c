@@ -1,6 +1,6 @@
 #include "../includes/checker.h"
 
-void	add_move(char **all_moves, const char * line)
+void	add_move(char **all_moves, const char *line)
 {
 	char	*tmp;
 
@@ -12,7 +12,7 @@ void	add_move(char **all_moves, const char * line)
 	(*all_moves) = NULL;
 	if (!tmp)
 		return ;
-	(*all_moves) = tmp;	
+	(*all_moves) = tmp;
 }
 
 static t_moves	moves_init_ck(void)
@@ -26,6 +26,7 @@ static t_moves	moves_init_ck(void)
 	new.tot_moves = 0;
 	return (new);
 }
+
 static t_stack	*new_value_ck(char *value)
 {
 	t_stack	*new;
@@ -64,7 +65,6 @@ t_stack	*stack_init_checker(char **mtx)
 	}
 	new->pre = ptr;
 	ptr->next = new;
-	
 	index_setup(&new, mtx);
 	return (new);
 }

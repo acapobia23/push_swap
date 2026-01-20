@@ -6,16 +6,16 @@ static t_range	make_range(int start, int end)
 
 	new.min = start;
 	if (end)
-	new.max = end;
+		new.max = end;
 	new.tot_n = (end - start) + 1;
 	return (new);
 }
 
-static t_chunk	*new_chunk(int	num_tot, int start, int end_final)
+static t_chunk	*new_chunk(int num_tot, int start, int end_final)
 {
 	t_chunk	*new;
-	int	size;
-	int	end;
+	int		size;
+	int		end;
 
 	if (num_tot <= 3)
 		size = num_tot / 1;
@@ -32,7 +32,7 @@ static t_chunk	*new_chunk(int	num_tot, int start, int end_final)
 	start = end + 1;
 	end = start + size;
 	if (num_tot > 3)
-	new->mid = make_range(start, end);
+		new->mid = make_range(start, end);
 	start = end + 1;
 	end = end_final;
 	new->high = make_range(start, end);
@@ -63,8 +63,8 @@ static void	divide_high_range(t_data **data)
 
 void	chunks_setup(t_data **data)
 {
-	int count;
-	int size;
+	int	count;
+	int	size;
 
 	size = (*data)->tot_n;
 	count = 0;

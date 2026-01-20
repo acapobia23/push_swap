@@ -15,6 +15,7 @@ int	check_order(t_stack *stack, int tot_n)
 	}
 	return (1);
 }
+
 t_moves	moves_init(void)
 {
 	t_moves	new;

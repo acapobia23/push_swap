@@ -14,7 +14,7 @@ static int	find_idx(long num, long *arr, int len)
 	return (i);
 }
 
-static void	swap_int(long* xp, long* yp)
+static void	swap_int(long *xp, long *yp)
 {
 	long	temp;
 
@@ -23,11 +23,11 @@ static void	swap_int(long* xp, long* yp)
 	*yp = temp;
 }
 
-static void bubbleSort(long *arr, int n)
+static void	bubblesort(long *arr, int n)
 {
-	int	i;
-	int	j;
-	bool swapped;
+	int		i;
+	int		j;
+	bool	swapped;
 
 	i = -1;
 	while (++i < n)
@@ -43,14 +43,14 @@ static void bubbleSort(long *arr, int n)
 			}
 		}
 		if (swapped == false)
-			break;
+			break ;
 	}
 }
 
 static long	*array_init(int len, char **mtx)
 {
 	long	*arr;
-	int	i;
+	int		i;
 
 	i = -1;
 	arr = NULL;
@@ -77,11 +77,11 @@ void	index_setup(t_stack **new, char **mtx)
 	arr = array_init(len, mtx);
 	if (!arr)
 		return ;
-	 bubbleSort(arr, len);
-	 while (++i < len)
-	 {
+	bubblesort(arr, len);
+	while (++i < len)
+	{
 		ptr->idx = find_idx(ptr->num, arr, len);
 		ptr = ptr->next;
-	 }
-	 free(arr);
+	}
+	free(arr);
 }

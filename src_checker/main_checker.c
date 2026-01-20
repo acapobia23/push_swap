@@ -14,4 +14,4 @@ int	main(int ac, char **av)
 	check_final(checker);
 	free_checker(&checker);
 	return (0);
-} 
+}

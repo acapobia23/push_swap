@@ -1,5 +1,21 @@
 #include "../includes/push_swap.h"
 
+t_stack	*find_small(t_stack *stack)
+{
+	t_stack	*ptr;
+	t_stack	*small;
+
+	ptr = stack->next;
+	small = stack;
+	while (ptr->idx != stack->idx)
+	{
+		if (ptr->idx < small->idx)
+			small = ptr;
+		ptr = ptr->next;
+	}
+	return (small);
+}
+
 static int	is_consec(t_data **data, t_chunk *ptr, int *count_pb, int tot_push)
 {
 	int	idx_a;
@@ -13,13 +29,19 @@ static int	is_consec(t_data **data, t_chunk *ptr, int *count_pb, int tot_push)
 		return (-1);
 	else if ((idx_a + 1) == idx_b || (idx_a - 1) == idx_b)
 	{
-		if (ft_ischunk(idx_a, ptr))
+		if (ft_ischunk(idx_a, ptr, (*data)->tot_n))
+			return (1);
+	}
+	else if ((idx_a + 2) == idx_b || (idx_a - 2) == idx_b)
+	{
+		if (ft_ischunk(idx_a, ptr, (*data)->tot_n))
 			return (1);
 	}
 	return (-1);
 }
 
-void	push_consevutive(t_data **data, t_chunk *ptr, int *count_pb, int tot_push)
+void	push_consevutive(t_data **data, t_chunk *ptr, int *count_pb,\
+						int tot_push)
 {
 	while (is_consec(&(*data), ptr, &(*count_pb), tot_push) == 1)
 	{

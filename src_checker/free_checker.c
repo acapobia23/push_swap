@@ -20,7 +20,7 @@ int	check_moves(char **moves, t_funct *funct)
 			return (-1);
 		i++;
 	}
-	return (0);	
+	return (0);
 }
 
 void	free_checker(t_checker **checker)

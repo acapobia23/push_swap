@@ -1,6 +1,8 @@
 #include "../includes/checker.h"
 
-static t_funct new_rule(const char *move, int flag, void (*one)(t_stack **stack), void (*two)(t_stack **stack_a, t_stack **stack_b))
+static t_funct	new_rule(const char *move, int flag,\
+				void (*one)(t_stack **stack),\
+				void (*two)(t_stack **stack_a, t_stack **stack_b))
 {
 	t_funct	new;
 
@@ -49,7 +51,7 @@ static char	**read_moves(void)
 		{
 			if (line)
 				free(line);
-			break;
+			break ;
 		}
 		add_move(&all_moves, (const char *)line);
 		free(line);
@@ -70,7 +72,7 @@ t_checker	*checker_setup(int ac, char **av)
 	new = NULL;
 	new = malloc(sizeof(t_checker));
 	if (!new)
-	return (NULL);
+		return (NULL);
 	new->stack_b = NULL;
 	new->stack_a = NULL;
 	new->moves = NULL;

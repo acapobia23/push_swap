@@ -39,7 +39,7 @@ void	free_data(t_data **data)
 
 void	error_exit(const char *str)
 {
-	ft_printf("%s\n",str);
+	ft_printf("%s\n", str);
 	exit(1);
 }
 

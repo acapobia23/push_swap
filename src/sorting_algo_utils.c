@@ -33,22 +33,6 @@ t_stack	*find_cheapest(t_stack *stack, int len)
 	return (cheap);
 }
 
-t_stack	*find_small(t_stack *stack)
-{
-	t_stack	*ptr;
-	t_stack	*small;
-
-	ptr = stack->next;
-	small = stack;
-	while (ptr->idx != stack->idx)
-	{
-		if (ptr->idx < small->idx)
-			small = ptr;
-		ptr = ptr->next;
-	}
-	return (small);
-}
-
 t_stack	*find_big(t_stack *stack)
 {
 	t_stack	*ptr;

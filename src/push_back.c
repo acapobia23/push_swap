@@ -14,8 +14,11 @@ static void	set_count(int *c_a, int *c_b, t_stack *cheap, int verse)
 	}
 }
 
-void	put_pos_single(t_stack **stack, int i, int c, int verse, int flag)
+void	put_pos_single(t_stack **stack, int c, int verse, int flag)
 {
+	int	i;
+
+	i = 0;
 	if (flag == 0)
 	{
 		while (i < c)
@@ -39,6 +42,7 @@ void	put_pos_single(t_stack **stack, int i, int c, int verse, int flag)
 		}
 	}
 }
+
 static void	put_pos_same_verse(t_data **data, t_stack *cheap, int verse)
 {
 	int	i;
@@ -56,20 +60,18 @@ static void	put_pos_same_verse(t_data **data, t_stack *cheap, int verse)
 		i++;
 	}
 	if (i < c_a)
-		put_pos_single(&((*data)->stack_a), i, c_a, verse, 0);
-	if (i  < c_b)
-		put_pos_single(&((*data)->stack_b), i, c_b, verse, 1);
+		put_pos_single(&((*data)->stack_a), c_a - i, verse, 0);
+	if (i < c_b)
+		put_pos_single(&((*data)->stack_b), c_b - i, verse, 1);
 	if ((*data)->stack_b->idx != cheap->idx)
-		put_pos_single(&((*data)->stack_b), i, c_b + 1, verse, 1);
+		put_pos_single(&((*data)->stack_b), (c_b + 1) - i, verse, 1);
 }
 
 static void	put_pos_alone(t_data **data, t_stack *cheap)
 {
 	int	c_a;
 	int	c_b;
-	int	i;
 
-	i = 0;
 	if (cheap->moves.ra <= cheap->moves.rra)
 		c_a = cheap->moves.ra;
 	else
@@ -79,13 +81,13 @@ static void	put_pos_alone(t_data **data, t_stack *cheap)
 	else
 		c_b = cheap->moves.rrb;
 	if (cheap->moves.ra <= cheap->moves.rra)
-		put_pos_single(&((*data)->stack_a), i, c_a, 1, 0);
+		put_pos_single(&((*data)->stack_a), c_a, 1, 0);
 	else
-		put_pos_single(&((*data)->stack_a), i, c_a, 2, 0);
+		put_pos_single(&((*data)->stack_a), c_a, 2, 0);
 	if (cheap->moves.rb < cheap->moves.rrb)
-		put_pos_single(&((*data)->stack_b), i, c_b, 1, 1);
+		put_pos_single(&((*data)->stack_b), c_b, 1, 1);
 	else
-		put_pos_single(&((*data)->stack_b), i, c_b, 2, 1);
+		put_pos_single(&((*data)->stack_b), c_b, 2, 1);
 }
 
 void	push_cheapest(t_data **data, t_stack *cheap)
@@ -98,6 +100,7 @@ void	push_cheapest(t_data **data, t_stack *cheap)
 	else
 		put_pos_alone(&(*data), cheap);
 	ft_pa(&((*data)->stack_b), &((*data)->stack_a));
-	if ((*data)->stack_b && (((*data)->stack_b->idx + 1) == (*data)->stack_a->idx))
+	if ((*data)->stack_b
+		&& (((*data)->stack_b->idx + 1) == (*data)->stack_a->idx))
 		ft_pa(&((*data)->stack_b), &((*data)->stack_a));
 }

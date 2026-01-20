@@ -22,7 +22,6 @@ static int	check_args(char **args)
 					return (-1);
 			}
 		}
-		
 	}
 	return (0);
 }

@@ -1,6 +1,5 @@
 #include "get_next_line.h"
 
-
 void	add_buffer(char **buf, char **str)
 {
 	char	*tmp;

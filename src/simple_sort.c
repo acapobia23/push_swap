@@ -3,20 +3,18 @@
 void	take_on_top_smaller(t_stack **stack_a)
 {
 	t_stack	*ptr;
-	int	ra;
-	int	rra;
-	int	c;
+	int		ra;
+	int		rra;
 
 	ra = 0;
 	rra = 0;
-	c = 0;
 	ptr = find_small((*stack_a));
-	ra =  distance_from_top(ptr, (*stack_a));
+	ra = distance_from_top(ptr, (*stack_a));
 	rra = count_stack((*stack_a)) - ra;
 	if (ra <= rra)
-		put_pos_single(&(*stack_a), c, ra, 1, 0);
+		put_pos_single(&(*stack_a), ra, 1, 0);
 	else
-		put_pos_single(&(*stack_a), c, rra, 2, 0);
+		put_pos_single(&(*stack_a), rra, 2, 0);
 }
 
 static void	sort_case_4(t_stack **stack)

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:24:18 by acapobia          #+#    #+#             */
-/*   Updated: 2025/12/29 03:05:53 by marvin           ###   ########.fr       */
+/*   Updated: 2026/01/16 23:17:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	find_len(char const *s1, char const *s2)
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-    char	*new;
+	char	*new;
 	int		len;
 	int		i;
 	int		j;

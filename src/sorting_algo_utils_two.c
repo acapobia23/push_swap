@@ -1,22 +1,22 @@
 #include "../includes/push_swap.h"
 
-static int	verse_return(t_moves moves, int r_a, int rr_a, int r_b, int rr_b)
+static int	verse_return(t_moves moves, t_moves tmp)
 {
 	int	verse;
 
 	verse = 0;
-	if ((r_a == 1 && r_b == 1))
-			verse = 1;
-	else if ((rr_a == 1 && rr_b == 1))
-			verse = 2;
-	else if (r_a == 0 && moves.ra != 0)
+	if ((tmp.ra == 1 && tmp.rb == 1))
+		verse = 1;
+	else if ((tmp.rra == 1 && tmp.rrb == 1))
+		verse = 2;
+	else if (tmp.ra == 0 && moves.ra != 0)
 	{
 		if (moves.rb <= moves.rrb)
 			verse = 1;
 		else
 			verse = 2;
 	}
-	else if (r_b == 0 && moves.rb != 0)
+	else if (tmp.rb == 0 && moves.rb != 0)
 	{
 		if (moves.ra <= moves.rra)
 			verse = 1;
@@ -28,28 +28,25 @@ static int	verse_return(t_moves moves, int r_a, int rr_a, int r_b, int rr_b)
 
 int	same_verse(t_stack *cheap)
 {
-	int	r_a;
-	int	r_b;
-	int	rr_a;
-	int	rr_b;
+	t_moves	tmp;
 
-	r_a = -1;
-	r_b = -1;
-	rr_a = -1;
-	rr_b = -1;
+	tmp.ra = -1;
+	tmp.rb = -1;
+	tmp.rra = -1;
+	tmp.rrb = -1;
 	if (cheap->moves.ra < cheap->moves.rra)
-		r_a = 1;
+		tmp.ra = 1;
 	else if (cheap->moves.ra > cheap->moves.rra)
-		rr_a = 1;
+		tmp.rra = 1;
 	else if (cheap->moves.ra == cheap->moves.rra)
-		r_a = 0;
+		tmp.ra = 0;
 	if (cheap->moves.rb < cheap->moves.rrb)
-		r_b = 1;
+		tmp.rb = 1;
 	else if (cheap->moves.rb > cheap->moves.rrb)
-		rr_b = 1;
+		tmp.rrb = 1;
 	else if (cheap->moves.rb == cheap->moves.rrb)
-		r_b = 0;
-	return (verse_return(cheap->moves, r_a, rr_a, r_b, rr_b));
+		tmp.rb = 0;
+	return (verse_return(cheap->moves, tmp));
 }
 
 static void	set_tot_moves(t_moves *moves)
